@@ -1,0 +1,175 @@
+/* Generado por tools/sincronizar-kit.js desde ../wordwizard/game/css/estilo.css. No editar a mano. */
+@font-face { font-family: 'Fredoka'; src: url(fonts/fredoka-400.woff2) format('woff2'); font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Fredoka'; src: url(fonts/fredoka-600.woff2) format('woff2'); font-weight: 600; font-display: swap; }
+@font-face { font-family: 'Fredoka'; src: url(fonts/fredoka-700.woff2) format('woff2'); font-weight: 700; font-display: swap; }
+@font-face { font-family: 'Nunito'; src: url(fonts/nunito-400.woff2) format('woff2'); font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Nunito'; src: url(fonts/nunito-700.woff2) format('woff2'); font-weight: 700; font-display: swap; }
+@font-face { font-family: 'Nunito'; src: url(fonts/nunito-800.woff2) format('woff2'); font-weight: 800; font-display: swap; }
+:root {
+  --noche: #1c2f38; --noche-2: #142128; --pino: #2c4d58; --pino-claro: #3f666c;
+  --salvia: #67948f; --salvia-clara: #92afa1; --bruma: #bbd0b9; --menta: #dfebd6;
+  --oro: #f2c66d; --oro-osc: #c49a42; --coral: #e8907a; --linea: #16262c;
+  --texto: #eef4ea; --texto-suave: #b5c8bd; --texto-apagado: #86a097;
+  --vidrio: rgba(223, 235, 214, .12); --vidrio-fuerte: rgba(223, 235, 214, .18); --vidrio-borde: rgba(223, 235, 214, .24);
+  --sombra: 0 10px 28px rgba(10, 20, 25, .35);
+  --display: 'Fredoka', 'Nunito', 'Segoe UI', sans-serif;
+  --texto-f: 'Nunito', 'Segoe UI', system-ui, sans-serif;
+  --ancho: 480px;
+  --spring: cubic-bezier(.34, 1.56, .64, 1);
+  --suave: cubic-bezier(.2, .8, .3, 1);
+}
+
+#fondo { position: fixed; inset: 0; z-index: 0; overflow: hidden; background: var(--noche); }
+.oscurecer { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(28,47,56,.15) 0%, rgba(28,47,56,.35) 45%, rgba(20,33,40,.82) 100%); }
+.niebla { position: absolute; left: -30%; width: 160%; height: 40%; pointer-events: none; filter: blur(18px); mix-blend-mode: screen; }
+.niebla.n1 { bottom: 0; background: radial-gradient(40% 60% at 30% 50%, rgba(223,235,214,.4), transparent 70%), radial-gradient(35% 50% at 75% 60%, rgba(187,208,185,.3), transparent 70%); animation: nieblaA 38s linear infinite; opacity: .45; }
+.mago { position: relative; display: block; }
+.mago-dibujo svg { width: 100%; height: auto; display: block; overflow: visible; filter: drop-shadow(0 10px 12px rgba(10,20,25,.4)); }
+.mago-grande { width: 170px; }
+.mago-medio { width: 96px; }
+.mago-chico { width: 78px; }
+.mago .cuerpo { transform-box: view-box; transform-origin: 100px 240px; animation: respira 2.6s ease-in-out infinite; }
+.mago .sombrero { transform-box: view-box; transform-origin: 100px 118px; animation: sombrero 3.3s ease-in-out infinite; transition: transform .35s var(--spring); }
+.mago .barba { transform-box: view-box; transform-origin: 100px 120px; animation: barba 2.6s ease-in-out infinite; transition: transform .35s var(--suave); }
+.mago .nariz { transform-box: view-box; transform-origin: 98px 138px; transition: transform .3s var(--suave); }
+.mago .brazo { transform-box: view-box; transition: transform .35s var(--spring); }
+.mago .glow { transform-box: fill-box; transform-origin: center; animation: glow 1.6s ease-in-out infinite; }
+.mago.en-combo .glow { animation: glowCombo .5s ease-in-out infinite alternate; }
+.mago.cast .brazo { transform: rotate(-28deg) translateY(-6px); }
+.mago.cast .sombrero { transform: rotate(-6deg) translateY(-4px); animation: none; }
+.mago.cast .glow { animation: glowCombo .25s ease-out infinite alternate; }
+.mago.happy .cuerpo { animation: salto .6s var(--spring) infinite; }
+.mago.happy .sombrero { animation: sombSalta .6s var(--spring) infinite; }
+.mago.sad .cuerpo { animation: none; transform: translateY(4px) scale(1.04,.94); }
+.mago.sad .sombrero { animation: none; transform: rotate(-14deg) translateY(10px); }
+.mago.sad .barba { animation: none; transform: scaleY(1.05) translateY(3px); }
+.mago.sad .brazo { transform: rotate(26deg) translateY(4px); }
+.mago.sad .nariz { transform: translateY(3px); }
+.mago.fidget .sombrero { animation: sombreroFidget 1s var(--spring); }
+.mago.fidget .brazo { transform: rotate(-16deg); }
+.mago.saludo .brazo { animation: saludo 1.1s ease-in-out; }
+.mago.cast .brazo { animation: castAnt .5s cubic-bezier(.3,1.4,.5,1) forwards; }
+.mago.cast .sombrero { animation: sombCast .55s cubic-bezier(.3,1.4,.5,1) forwards; }
+.mago.happy .cuerpo { animation: saltoAnt .62s cubic-bezier(.3,1.3,.5,1) infinite; }
+.mago.happy .sombrero { animation: sombSaltoAnt .62s cubic-bezier(.3,1.3,.5,1) infinite; }
+.mago.sad .cuerpo { animation: tristeAnt .6s cubic-bezier(.3,1.3,.5,1) forwards; }
+.mago.sad .sombrero { animation: sombTriste .6s cubic-bezier(.3,1.3,.5,1) forwards; }
+.mago-chispas { position: absolute; inset: 0; pointer-events: none; overflow: visible; }
+.escenario .jefe .mago-dibujo svg { transform: scaleX(-1); }
+.escenario .mago { flex: none; margin-bottom: -10px; }
+@media (min-height: 760px) { .escenario { height: 132px; } .mago-chico { width: 88px; } }
+@media (max-height: 640px) { .escenario { height: 96px; } .mago-chico { width: 64px; } .globo { font-size: 13px; padding: 6px 10px; margin-bottom: 30px; } }
+@media (prefers-reduced-motion: reduce) { #app.sacudir, #app.sacudir-fuerte, .niebla, .esc-nube { animation: none !important; } .esc-capa { transition: none !important; } }
+.esc-atras, .esc-frente { position: absolute; inset: 0; pointer-events: none; }
+.esc-grupo { position: absolute; inset: 0; transition: opacity .9s ease; }
+.esc-capa { position: absolute; display: block; transition: transform .9s var(--suave); }
+.oscurecer { background: linear-gradient(180deg, rgba(20,33,40,0) 0%, rgba(20,33,40,0) 38%, rgba(20,33,40,.42) 78%, rgba(20,33,40,.62) 100%); }
+body.lugar-cielo .oscurecer, body.lugar-cumbre .oscurecer { background: linear-gradient(180deg, rgba(20,33,40,0) 0%, rgba(20,33,40,0) 45%, rgba(20,33,40,.32) 100%); }
+.esc-arbol { transform-box: fill-box; transform-origin: 50% 100%; animation: meceo var(--d, 6s) ease-in-out infinite; }
+.esc-arbol.grande { animation-name: meceoGrande; }
+.esc-arbol.sacude { animation: sacudeArbol .75s cubic-bezier(.3,1.6,.5,1); }
+.esc-titila { animation: titila 3.2s ease-in-out infinite; }
+.esc-nube { animation-name: nubeCruza; animation-timing-function: linear; animation-iteration-count: infinite; }
+.esc-niebla-a { animation: nieblaA 38s ease-in-out infinite; }
+.esc-niebla-b { animation: nieblaB 52s ease-in-out infinite; }
+.esc-ventana { animation: velaVentana 2.6s ease-in-out infinite; }
+.esc-llama { transform-box: fill-box; transform-origin: 50% 100%; animation: llama .9s ease-in-out infinite alternate; }
+.esc-flota { animation: flotaCosa 5s ease-in-out infinite; }
+.esc-ojos { animation: buho 5.5s infinite; }
+.esc-buho.sacude .esc-ojos { animation: buhoSusto .6s ease-out; }
+.esc-fugaz { position: absolute; width: 90px; height: 3px; border-radius: 3px; background: linear-gradient(90deg, rgba(255,246,216,0), #fff6d8); transform: rotate(-24deg); animation: fugaz 1.1s ease-out forwards; }
+.mago { cursor: pointer; touch-action: none; -webkit-touch-callout: none; }
+.mago .cabeza { transform-box: view-box; transform-origin: 100px 200px; transition: transform .55s var(--spring); }
+.mago.flick .brazo { animation: flick .26s ease-out; }
+.mago.gira .brazo { animation: giraVarita .7s cubic-bezier(.4,0,.3,1); }
+.mago.risa .cuerpo { animation: risa .9s ease-in-out; }
+.mago.risa .sombrero { animation: sombreroRisa .9s ease-in-out; }
+.mago.giro .mago-dibujo { animation: giro .9s cubic-bezier(.3,1.3,.5,1); }
+.mago.estornudo .nariz { animation: narizAchis 1.1s ease-in-out; }
+.mago.estornudo .sombrero { animation: sombreroAchis 1.1s cubic-bezier(.3,1.4,.5,1); }
+.mago.estornudo .cuerpo { animation: cuerpoAchis 1.1s ease-in-out; }
+.mago.sombrerazo .sombrero { animation: sombrerazo .9s cubic-bezier(.3,1.4,.5,1); }
+.mago.sombrerazo .cuerpo { animation: sombrerazoCuerpo .9s ease-in-out; }
+.mago.dormido .cuerpo { animation: dormido 3.6s ease-in-out infinite; }
+.mago.dormido .sombrero { animation: none; transform: rotate(-16deg) translateY(12px); }
+.mago.dormido .brazo { transform: rotate(40deg) translateY(10px); }
+.mago.dormido .glow { animation: none; opacity: .1; }
+.mago.nervioso .mago-dibujo { animation: nervioso .18s linear infinite; }
+.mago.levita .mago-dibujo { animation: levita 1.6s ease-in-out infinite; }
+.mago.levita .mago-dibujo svg { filter: drop-shadow(0 0 10px rgba(242,198,109,.55)) drop-shadow(0 18px 10px rgba(10,20,25,.35)); }
+.intro-nubes { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+.intro-banco { position: absolute; top: 0; bottom: 0; transition: transform 1.7s cubic-bezier(.65,0,.25,1); }
+.intro-banco svg { display: block; height: 100%; }
+.intro-banco.izq { left: 0; }
+.intro-banco.der { right: 0; }
+.intro-banco.atras { transition-duration: 2.1s; }
+.intro-banco.atras.izq { left: -40px; }
+.intro-banco.atras.der { right: -40px; }
+.intro-nubes.abre .intro-banco.izq { transform: translateX(-108%); }
+.intro-nubes.abre .intro-banco.der { transform: translateX(108%); }
+.intro-nubes:not(.abre) .intro-banco { animation: bancoRespira 2.4s ease-in-out infinite; }
+.mago-resultado { width: 104px; margin: 0 auto -8px; }
+.escenario .mago-chico { width: clamp(78px, 12.5vh, 118px); }
+@media (prefers-reduced-motion: reduce) {
+  .esc-arbol, .esc-nube, .esc-titila, .esc-flota, .esc-niebla-a, .esc-niebla-b, .logo-ficha, .logo-destello, .lluvia, .mago .cuerpo, .mago .sombrero, .mago .barba { animation: none !important; }
+  .relampago { display: none; }
+}
+body.jugando #fondo *, body.jugando #fondo *::before { animation-play-state: paused !important; }
+.mapa-silabo.izq .mago-dibujo { transform: scaleX(-1); }
+.mapa-jefe .mago-dibujo { transform: scaleX(-1); }
+.mapa-silabo .mago-dibujo { transition: transform .2s ease; }
+.inicio-mago .mago { pointer-events: auto; }
+.mago-inicio { width: min(46vw, 200px); margin-bottom: 6px; }
+.mago-medallones { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px 6px; margin: 14px 0 12px; }
+@supports (-webkit-touch-callout: none) {
+  .mago-dibujo { position: relative; isolation: isolate; }
+  .mago-dibujo svg, .mago.levita .mago-dibujo svg { filter: none; }
+  .mago-dibujo::after { content: ''; position: absolute; left: 24%; right: 24%; bottom: -1%; height: 7%; border-radius: 50%; background: radial-gradient(closest-side, rgba(10,20,25,.42), rgba(10,20,25,0)); z-index: -1; pointer-events: none; }
+  .mago.levita .mago-dibujo::after { background: radial-gradient(closest-side, rgba(242,198,109,.35), rgba(10,20,25,0)); }
+  .niebla { mix-blend-mode: normal; filter: none; }
+  .modal-caja { -webkit-backdrop-filter: none; backdrop-filter: none; background: rgba(28,47,56,.97); }
+}
+
+@keyframes nieblaA { 0%, 100% { transform: translateX(-10%); } 50% { transform: translateX(8%); } }
+@keyframes respira { 50% { transform: translateY(-3px) scale(1.015, 1.025); } }
+@keyframes sombrero { 50% { transform: rotate(3deg); } }
+@keyframes barba { 50% { transform: rotate(-1.5deg); } }
+@keyframes glow { 50% { opacity: .6; transform: scale(1.25); } }
+@keyframes glowCombo { from { opacity: .5; transform: scale(1.2); } to { opacity: .95; transform: scale(1.6); } }
+@keyframes salto { 0% { transform: translateY(0) scale(1,1); } 25% { transform: translateY(2px) scale(1.08,.9); } 55% { transform: translateY(-28px) scale(.95,1.08); } 100% { transform: translateY(0) scale(1,1); } }
+@keyframes sombSalta { 55% { transform: translateY(-12px) rotate(-10deg); } }
+@keyframes sombreroFidget { 30% { transform: translateY(-9px) rotate(-9deg); } 60% { transform: translateY(0) rotate(4deg); } }
+@keyframes saludo { 20%, 60% { transform: rotate(-32deg); } 40%, 80% { transform: rotate(-12deg); } }
+@keyframes castAnt { 0% { transform: rotate(0) translateY(0); } 30% { transform: rotate(10deg) translateY(3px); } 100% { transform: rotate(-28deg) translateY(-6px); } }
+@keyframes sombCast { 0% { transform: rotate(0); } 30% { transform: rotate(3deg) translateY(2px); } 100% { transform: rotate(-6deg) translateY(-4px); } }
+@keyframes saltoAnt { 0% { transform: translateY(0) scale(1,1); } 22% { transform: translateY(3px) scale(1.1,.86); } 50% { transform: translateY(-30px) scale(.94,1.1); } 78% { transform: translateY(0) scale(1.06,.93); } 100% { transform: translateY(0) scale(1,1); } }
+@keyframes sombSaltoAnt { 22% { transform: translateY(2px) rotate(2deg); } 55% { transform: translateY(-12px) rotate(-10deg); } 80% { transform: translateY(1px) rotate(3deg); } }
+@keyframes tristeAnt { 0% { transform: translateY(0) scale(1,1); } 40% { transform: translateY(6px) scale(1.07,.9); } 70% { transform: translateY(2px) scale(1.02,.97); } 100% { transform: translateY(4px) scale(1.04,.94); } }
+@keyframes sombTriste { 0% { transform: rotate(0); } 50% { transform: rotate(-17deg) translateY(12px); } 100% { transform: rotate(-14deg) translateY(10px); } }
+@keyframes meceo { 0%, 100% { transform: rotate(-.9deg); } 50% { transform: rotate(.9deg); } }
+@keyframes meceoGrande { 0%, 100% { transform: rotate(-.6deg); } 50% { transform: rotate(.6deg); } }
+@keyframes sacudeArbol { 0% { transform: rotate(0); } 20% { transform: rotate(-4deg) scale(1.02, .97); } 45% { transform: rotate(3deg) scale(.99, 1.02); } 70% { transform: rotate(-1.5deg); } 100% { transform: rotate(0); } }
+@keyframes titila { 0%, 100% { opacity: 1; } 50% { opacity: .25; } }
+@keyframes nubeCruza { from { transform: translateX(0); } to { transform: translateX(var(--ancho, 600px)); } }
+@keyframes nieblaA { 0%, 100% { transform: translateX(-4%); } 50% { transform: translateX(4%); } }
+@keyframes nieblaB { 0%, 100% { transform: translateX(5%); } 50% { transform: translateX(-5%); } }
+@keyframes velaVentana { 0%, 100% { opacity: 1; } 40% { opacity: .7; } 55% { opacity: .95; } 70% { opacity: .6; } }
+@keyframes llama { from { transform: scale(1, 1) rotate(-4deg); } to { transform: scale(.85, 1.15) rotate(4deg); } }
+@keyframes flotaCosa { 50% { transform: translateY(-9px) rotate(1.5deg); } }
+@keyframes buho { 0%, 92%, 100% { transform: scaleY(1); } 95% { transform: scaleY(.1); } }
+@keyframes buhoSusto { 0% { transform: scale(1); } 30% { transform: scale(1.5); } 100% { transform: scale(1); } }
+@keyframes fugaz { from { transform: rotate(-24deg) translateX(0); opacity: 0; } 15% { opacity: 1; } to { transform: rotate(-24deg) translateX(-260px); opacity: 0; } }
+@keyframes flick { 40% { transform: rotate(-14deg); } }
+@keyframes giraVarita { to { transform: rotate(-360deg); } }
+@keyframes risa { 0%, 100% { transform: none; } 15%, 45%, 75% { transform: translateY(-5px) scale(.97, 1.04); } 30%, 60%, 90% { transform: translateY(1px) scale(1.04, .96); } }
+@keyframes sombreroRisa { 25% { transform: rotate(6deg); } 50% { transform: rotate(-5deg); } 75% { transform: rotate(4deg); } }
+@keyframes giro { 0% { transform: none; } 20% { transform: translateY(4px) scale(1.06, .92); } 60% { transform: translateY(-26px) scaleX(-1); } 100% { transform: none; } }
+@keyframes narizAchis { 0% { transform: none; } 30% { transform: translateY(-4px) scale(1.15, .9); } 38% { transform: translateY(-5px) scale(1.2, .85); } 45% { transform: translateY(3px) scale(1.25); } 70% { transform: scale(1.05); } 100% { transform: none; } }
+@keyframes sombreroAchis { 0%, 35% { transform: rotate(3deg); } 45% { transform: translateY(-26px) rotate(-14deg); } 75% { transform: translateY(2px) rotate(3deg); } 100% { transform: none; } }
+@keyframes cuerpoAchis { 30% { transform: translateY(-3px) scale(.97, 1.04) rotate(-3deg); } 45% { transform: translateY(2px) scale(1.06, .94) rotate(4deg); } 100% { transform: none; } }
+@keyframes sombrerazo { 0% { transform: none; } 30% { transform: translateY(-46px) rotate(-200deg); } 60% { transform: translateY(-30px) rotate(-360deg); } 80% { transform: translateY(4px) rotate(-360deg) scale(1.05, .92); } 100% { transform: rotate(-360deg); } }
+@keyframes sombrerazoCuerpo { 10% { transform: translateY(3px) scale(1.05, .93); } 30% { transform: translateY(-4px); } 80% { transform: translateY(2px) scale(1.03, .96); } }
+@keyframes dormido { 50% { transform: translateY(2px) scale(1.03, .97); } }
+@keyframes nervioso { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-1.2px) rotate(-.6deg); } 75% { transform: translateX(1.2px) rotate(.6deg); } }
+@keyframes levita { 0%, 100% { transform: translateY(-8px); } 50% { transform: translateY(-16px); } }
+@keyframes bancoRespira { 50% { transform: translateY(-6px); } }

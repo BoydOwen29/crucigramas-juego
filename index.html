@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+<meta name="theme-color" content="#1c2f38">
+<meta name="description" content="Crucigramas del Bosque: un crucigrama por día, con un tema distinto y pistas con humor. De los creadores de Word Wizard.">
+<title>Crucigramas del Bosque</title>
+<meta property="og:title" content="Crucigramas del Bosque">
+<meta property="og:description" content="Un crucigrama por día, con un tema distinto y pistas con humor. ¿Me ganás?">
+<meta property="og:image" content="https://crucigramas.capralabsgames.com/assets/img/icon-512x512.png">
+<meta property="og:url" content="https://crucigramas.capralabsgames.com/">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://crucigramas.capralabsgames.com/">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="assets/img/icon-192x192.png">
+<link rel="apple-touch-icon" href="assets/img/icon-192x192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Crucigramas">
+<link rel="preload" href="kit/fonts/fredoka-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="kit/fonts/nunito-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="kit/kit.css?v=1.0.0">
+<link rel="stylesheet" href="css/juego.css?v=1.0.0">
+</head>
+<body>
+<div id="fondo" aria-hidden="true">
+  <div class="esc-atras" id="esc-atras"></div>
+  <div class="esc-frente" id="esc-frente"></div>
+  <div class="oscurecer"></div>
+</div>
+
+<main id="app">
+  <!-- ===================== INICIO ===================== -->
+  <section id="p-inicio" class="pantalla activa">
+    <div class="barra-arriba">
+      <button class="redondo" id="btn-ayuda" title="Cómo se juega">?</button>
+      <div class="chips"><span class="chip" title="Racha"><b id="ini-racha">0</b> 🔥</span><span class="chip" title="Crucigramas resueltos"><b id="ini-jugados">0</b> ✓</span><button class="chip" id="btn-ranking" title="Ranking de hoy">🏆</button></div>
+      <button class="redondo" id="btn-musica" title="Música">♪</button>
+    </div>
+    <h1 class="logo" aria-label="Crucigramas del Bosque">
+      <span class="logo-fichas" id="logo-fichas"></span>
+      <span class="logo-del">del Bosque</span>
+    </h1>
+    <div class="mago mago-grande" id="mago-inicio"></div>
+    <div class="cartel-hoy">
+      <small id="ini-numero">CRUCIGRAMA #1</small>
+      <b id="ini-tema">El bosque</b>
+      <button class="btn btn-oro" id="btn-jugar">Jugar</button>
+      <span class="ini-nota" id="ini-nota">8 palabras · un tema por día</span>
+    </div>
+  </section>
+
+  <!-- ===================== JUEGO ===================== -->
+  <section id="p-juego" class="pantalla">
+    <div class="cab-juego">
+      <button class="redondo" id="btn-volver" title="Volver">‹</button>
+      <div class="mago mago-chico" id="mago-juego"></div>
+      <div class="cab-titulo"><small id="jg-numero">#1</small><b id="jg-tema">El bosque</b></div>
+      <button class="redondo chico" id="btn-teclado" aria-label="Cambiar de teclado">⌨</button>
+      <span class="reloj" id="reloj">0:00</span>
+    </div>
+    <div class="pista" id="pista">
+      <button class="pista-flecha" id="pista-ant" aria-label="Pista anterior">‹</button>
+      <div class="pista-texto"><i id="pista-n">1 →</i><span id="pista-txt"></span></div>
+      <button class="pista-flecha" id="pista-sig" aria-label="Pista siguiente">›</button>
+    </div>
+    <div class="tablero"><div class="grilla" id="grilla"></div></div>
+    <div class="acciones">
+      <button class="btn btn-madera" id="btn-letra" title="Doña Lenta te muestra una letra"><span class="ic-lenta" id="ic-lenta"></span> Una letra <small id="ayudas-n">3</small></button>
+      <button class="btn btn-madera" id="btn-comprobar">Comprobar</button>
+    </div>
+    <div class="teclado" id="teclado"></div>
+    <input id="entrada-nativa" class="entrada-nativa" type="text" inputmode="text" autocomplete="off" autocorrect="off" autocapitalize="characters" spellcheck="false" enterkeyhint="next" aria-label="Escribir letra">
+  </section>
+</main>
+
+<div class="modal oculto" id="modal"><div class="modal-caja" id="modal-caja"></div></div>
+<div id="confeti"></div>
+<div class="lenta-aviso" id="lenta-aviso"><div class="lenta-dibujo" id="lenta-dibujo"></div><p id="lenta-texto"></p></div>
+
+<script src="kit/silabo.js?v=1.0.0"></script>
+<script src="kit/mago.js?v=1.0.0"></script>
+<script src="kit/escena.js?v=1.0.0"></script>
+<script src="kit/audio.js?v=1.0.0"></script>
+<script src="js/generador.js?v=1.0.0"></script>
+<script src="js/personajes.js?v=1.0.0"></script>
+<script src="js/tarjeta.js?v=1.0.0"></script>
+<script src="js/ranking.js?v=1.0.0"></script>
+<script src="data/es/temas.js?v=1.0.0"></script>
+<script src="data/es/temas2.js?v=1.0.0"></script>
+<script src="js/app.js?v=1.0.0"></script>
+</body>
+</html>
