@@ -28,7 +28,10 @@
     const j = await res.json();
     return { token: j.access_token, refresh: j.refresh_token, vence: (j.expires_at || 0) * 1000, id: j.user && j.user.id };
   }
+  // desde la compu de desarrollo o un navegador automatizado no se manda nada (ensuciaba el ranking con pruebas)
+  const PRUEBA = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname) || navigator.webdriver;
   async function sesion() {
+    if (PRUEBA) throw new Error('sin ranking en pruebas');
     let s = leer(LS_SESION, null);
     if (s && s.vence > Date.now() + 60000) return s;
     let nueva = s && s.refresh ? await auth('token?grant_type=refresh_token', { refresh_token: s.refresh }) : null;
